@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEL-B Group 5 | Budget Tracker Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="dashboard">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="logo" href="index.html"><span class="logo-mark">$</span><span>MEL-B Group 5 Budget Tracker</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="budgets.html">Budgets</a>
+        <a href="reports.html">Reports</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <h1>Track income, control spending, and export reports.</h1>
+      <p>This local web application supports the ICT502 Scenario 5 budget tracker requirements by allowing users to record transactions, categorise spending, monitor budgets, see alerts, and view summaries through charts and tables.</p>
+      <div class="hero-actions no-print">
+        <a class="btn btn-primary" href="transactions.html">Add transaction</a>
+        <a class="btn btn-outline" href="reports.html">View reports</a>
+        <button class="btn" id="loadSampleData" type="button">Load sample data</button>
+      </div>
+    </div>
+  </section>
+  <main class="main" id="main">
+    <div class="container grid">
+      <section class="grid grid-4" aria-label="Monthly summary cards">
+        <article class="card stat"><div><small>Total income</small><strong id="totalIncome">$0.00</strong></div><span class="stat-icon">↑</span></article>
+        <article class="card stat"><div><small>Total expenses</small><strong id="totalExpense">$0.00</strong></div><span class="stat-icon">↓</span></article>
+        <article class="card stat"><div><small>Net balance</small><strong id="netBalance">$0.00</strong></div><span class="stat-icon">=</span></article>
+        <article class="card stat"><div><small>Budget used</small><strong id="budgetUsed">No budget</strong></div><span class="stat-icon">%</span></article>
+      </section>
+
+      <section class="grid grid-2">
+        <article class="card">
+          <h2>Quick add transaction</h2>
+          <p>Add income or expenses directly from the dashboard. Records are saved in this browser.</p>
+          <form id="quickForm" data-message="#quickMessage">
+            <input type="hidden" name="id">
+            <div class="form-grid">
+              <label>Type
+                <select name="type" required>
+                  <option value="expense">Expense</option>
+                  <option value="income">Income</option>
+                </select>
+              </label>
+              <label>Category
+                <select name="category" required></select>
+              </label>
+              <label>Date
+                <input type="date" name="date" required>
+              </label>
+              <label>Amount
+                <input type="number" name="amount" min="0.01" step="0.01" placeholder="0.00" required>
+              </label>
+            </div>
+            <label>Note
+              <input type="text" name="note" maxlength="80" placeholder="e.g., groceries, salary, rent">
+            </label>
+            <button class="btn btn-primary" type="submit">Save transaction</button>
+            <div id="quickMessage" aria-live="polite"></div>
+          </form>
+        </article>
+        <article class="card">
+          <h2>Budget alerts</h2>
+          <p>Alerts compare current-month expenses with the monthly and category limits.</p>
+          <div id="alerts"></div>
+        </article>
+      </section>
+
+      <section class="grid grid-2">
+        <article class="card">
+          <h2>Expense categories</h2>
+          <div class="canvas-box"><canvas id="expensePie" aria-label="Pie chart of expenses by category" role="img"></canvas></div>
+          <div class="legend" id="expenseLegend"></div>
+        </article>
+        <article class="card">
+          <h2>Income vs expenses</h2>
+          <div class="canvas-box"><canvas id="incomeExpenseBar" aria-label="Bar chart comparing income and expenses" role="img"></canvas></div>
+          <div class="legend" id="barLegend"></div>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="actions" style="justify-content:space-between">
+          <div><h2>Recent transactions</h2><p>Latest records from the current browser storage.</p></div>
+          <a class="btn btn-outline no-print" href="transactions.html">Manage all</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Type</th><th>Category</th><th>Note</th><th>Amount</th></tr></thead>
+            <tbody id="recentTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><span>ICT502 Scenario 5 Budget Tracker</span><span>Runs locally in a web browser</span></div></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

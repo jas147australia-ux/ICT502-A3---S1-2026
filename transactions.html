@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions | MEL-B Group 5 Budget Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="transactions">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="container navbar"><a class="logo" href="index.html"><span class="logo-mark">$</span><span>MEL-B Group 5 Budget Tracker</span></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html">Dashboard</a><a href="transactions.html">Transactions</a><a href="budgets.html">Budgets</a><a href="reports.html">Reports</a><a href="about.html">About</a></nav></div></header>
+  <main class="main" id="main">
+    <div class="container grid">
+      <section class="card">
+        <h1>Transaction management</h1>
+        <p>Record income and expenses, assign categories, edit mistakes, and delete records when required.</p>
+      </section>
+      <section class="grid grid-2">
+        <article class="card">
+          <h2>Add or edit transaction</h2>
+          <form id="transactionForm" data-message="#formMessage">
+            <input type="hidden" name="id">
+            <div class="form-grid">
+              <label>Type
+                <select name="type" id="type" required>
+                  <option value="expense">Expense</option>
+                  <option value="income">Income</option>
+                </select>
+              </label>
+              <label>Category
+                <select name="category" id="category" data-category-select data-type-target="#type" required></select>
+              </label>
+              <label>Date
+                <input type="date" name="date" required>
+              </label>
+              <label>Amount
+                <input type="number" name="amount" min="0.01" step="0.01" placeholder="0.00" required>
+              </label>
+            </div>
+            <label>Note
+              <textarea name="note" rows="3" maxlength="120" placeholder="Short description of the transaction"></textarea>
+            </label>
+            <div class="actions"><button class="btn btn-primary" type="submit">Save transaction</button><button class="btn" type="reset">Reset form</button></div>
+            <div id="formMessage" aria-live="polite"></div>
+          </form>
+        </article>
+        <article class="card">
+          <h2>Filter transactions</h2>
+          <p>Filters support quick review during testing and presentation.</p>
+          <div class="form-grid">
+            <label>Month
+              <input type="month" id="filterMonth">
+            </label>
+            <label>Type
+              <select id="filterType"><option value="">All types</option><option value="income">Income</option><option value="expense">Expense</option></select>
+            </label>
+            <label>Category
+              <select id="filterCategory"><option value="">All categories</option><option>Food</option><option>Transport</option><option>Bills</option><option>Education</option><option>Entertainment</option><option>Shopping</option><option>Health</option><option>Savings</option><option>Salary</option><option>Freelance</option><option>Gift</option><option>Investment</option><option>Other</option></select>
+            </label>
+            <label>Search note/category
+              <input type="search" id="searchText" placeholder="Search text">
+            </label>
+          </div>
+        </article>
+      </section>
+      <section class="card">
+        <h2>All transaction records</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Type</th><th>Category</th><th>Note</th><th>Amount</th><th>Month</th><th class="no-print">Action</th></tr></thead>
+            <tbody id="transactionsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><span>Transaction CRUD functions</span><span>Data stored locally</span></div></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

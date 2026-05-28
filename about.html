@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | MEL-B Group 5 Budget Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="about">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="container navbar"><a class="logo" href="index.html"><span class="logo-mark">$</span><span>MEL-B Group 5 Budget Tracker</span></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html">Dashboard</a><a href="transactions.html">Transactions</a><a href="budgets.html">Budgets</a><a href="reports.html">Reports</a><a href="about.html">About</a></nav></div></header>
+  <main class="main" id="main">
+    <div class="container grid">
+      <section class="card">
+        <h1>About this web application</h1>
+        <p>This static local-browser prototype was prepared for ICT502 Scenario 5. It demonstrates core front-end development skills using HTML, CSS and JavaScript while keeping the application easy to run from a normal folder.</p>
+        <p id="storageStatus" class="alert good"></p>
+      </section>
+      <section class="grid grid-2">
+        <article class="card"><h2>Implemented features</h2><ul><li>Income and expense input with categories.</li><li>Editable transaction table with filtering and search.</li><li>Monthly and category budget setting.</li><li>Overspending alerts and status progress bars.</li><li>Charts generated with JavaScript canvas.</li><li>CSV, JSON and printable report export.</li></ul></article>
+        <article class="card"><h2>Technology choices</h2><ul><li>HTML5 for semantic page structure and forms.</li><li>CSS3 for responsive layout and visual styling.</li><li>Vanilla JavaScript for business logic and validation.</li><li>LocalStorage for browser-based data persistence.</li><li>Canvas for charts without external libraries.</li></ul></article>
+      </section>
+      <section class="grid grid-2">
+        <article class="card"><h2>Settings</h2><label>Currency display<select id="currencySelect"><option value="AUD">AUD</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="PKR">PKR</option><option value="EUR">EUR</option></select></label><p class="help">Changing currency affects display formatting only.</p></article>
+        <article class="card"><h2>Data controls</h2><p>Use these controls for demonstration or testing only.</p><div class="actions"><button class="btn btn-primary" id="loadSampleData" type="button">Load sample data</button><button class="btn btn-danger" id="clearAllData" type="button">Clear all data</button></div></article>
+      </section>
+      <section class="card"><h2>Testing summary</h2><p>The application was checked for local navigation, form validation, transaction creation, edit and delete functions, monthly filtering, budget alert calculation, chart rendering, and export downloads. The final result showed that the required functions worked in a local browser using saved browser data.</p></section>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><span>ICT502 MEL-B Group 5</span><span>Budget Tracker Application</span></div></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Testing Results Summary
+
+1. Local navigation test: PASS. All pages open from index.html and navigation links work locally.
+2. Transaction form validation: PASS. Required fields and positive amount validation work.
+3. Add transaction: PASS. Income and expense records are saved into browser localStorage.
+4. Edit transaction: PASS. Existing records reload into the form and update correctly.
+5. Delete transaction: PASS. Selected records are removed after confirmation.
+6. Budget setting: PASS. Total monthly and category budgets are saved and displayed.
+7. Overspending alert: PASS. Warning appears after 80% budget use and red alert appears after overspending.
+8. Chart rendering: PASS. Pie and bar charts display using native JavaScript canvas.
+9. Report filtering: PASS. Monthly reports update when a different month is selected.
+10. Export: PASS. CSV and JSON files download successfully from the reports page.
+11. Responsive layout: PASS. Pages adjust to desktop and mobile screen widths.

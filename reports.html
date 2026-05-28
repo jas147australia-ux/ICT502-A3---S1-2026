@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | MEL-B Group 5 Budget Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="reports">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="container navbar"><a class="logo" href="index.html"><span class="logo-mark">$</span><span>MEL-B Group 5 Budget Tracker</span></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html">Dashboard</a><a href="transactions.html">Transactions</a><a href="budgets.html">Budgets</a><a href="reports.html">Reports</a><a href="about.html">About</a></nav></div></header>
+  <main class="main" id="main">
+    <div class="container grid">
+      <section class="card">
+        <div class="actions" style="justify-content:space-between">
+          <div><h1>Monthly reports</h1><p>Select a month, review charts and tables, then export a CSV or JSON report.</p></div>
+          <label class="no-print">Report month
+            <input type="month" id="reportMonth">
+          </label>
+        </div>
+        <div class="actions no-print">
+          <button class="btn btn-primary" id="exportCsv" type="button">Export CSV</button>
+          <button class="btn btn-outline" id="exportJson" type="button">Export JSON</button>
+          <button class="btn" id="printReport" type="button">Print / Save PDF</button>
+        </div>
+      </section>
+      <section class="grid grid-4" aria-label="Report summary cards">
+        <article class="card stat"><div><small>Income</small><strong id="reportIncome">$0.00</strong></div><span class="stat-icon">↑</span></article>
+        <article class="card stat"><div><small>Expenses</small><strong id="reportExpense">$0.00</strong></div><span class="stat-icon">↓</span></article>
+        <article class="card stat"><div><small>Balance</small><strong id="reportBalance">$0.00</strong></div><span class="stat-icon">=</span></article>
+        <article class="card stat"><div><small>Records</small><strong id="reportTransactions">0</strong></div><span class="stat-icon">#</span></article>
+      </section>
+      <section class="card"><h2>Report alerts</h2><div id="reportAlerts"></div></section>
+      <section class="grid grid-2">
+        <article class="card"><h2>Expense category chart</h2><div class="canvas-box"><canvas id="reportPie" aria-label="Report pie chart" role="img"></canvas></div><div class="legend" id="reportLegend"></div></article>
+        <article class="card"><h2>Monthly financial summary</h2><div class="canvas-box"><canvas id="reportBar" aria-label="Report bar chart" role="img"></canvas></div><div class="legend" id="reportBarLegend"></div></article>
+      </section>
+      <section class="card">
+        <h2>Report table</h2>
+        <div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Category</th><th>Note</th><th>Amount</th></tr></thead><tbody id="reportTableBody"></tbody></table></div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><span>Exportable reports</span><span>CSV, JSON, and print</span></div></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
